@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 16:41:54 by roruiz-v          #+#    #+#             */
-/*   Updated: 2022/10/06 08:12:04 by roruiz-v         ###   ########.fr       */
+/*   Created: 2022/10/06 12:01:21 by roruiz-v          #+#    #+#             */
+/*   Updated: 2022/10/06 12:19:47 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,30 +27,52 @@
 */
 #include "libft.h"
 
+static int	ft_getnum(const char *str, size_t i, int sign, int n)
+{
+	size_t	j;
+	int		weight;
+
+	j = i;
+	weight = 1;
+	while (ft_isdigit(str[i]) && str[i] != '\0')
+		i++;
+	while (i-- > j)
+	{
+		n = n + (str[i] - 48) * weight;
+		weight = weight * 10;
+	}
+	if (sign != 0)
+		return (n * sign);
+	else
+		return (n);
+}
+
+static int	ft_idsign(const char *str, size_t i, int sign)
+{
+	if (str[i] == '+')
+		sign = +1;
+	else if (str[i] == '-')
+		sign = -1;
+	return (sign);
+}
+
 int	ft_atoi(const char *str)
 {
 	size_t	i;
-	size_t	j;
 	int		num;
-	int		weight;
 	int		sign;
 
 	i = 0;
-	j = 0;
 	num = 0;
 	sign = 0;
-	weight = 1;
 	while (!ft_isdigit(str[i]) && str[i] != '\0')
 	{
 		if (ft_isdigit(str[i]) || (str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 			i++;
 		else if ((str[i] == '+' || str[i] == '-') && sign == 0)
 		{
-			if (str[i] == '+')
-				sign = +1;
-			else if (str[i] == '-')
-				sign = -1;
-		i++;
+			sign = ft_idsign(str, i, sign);
+			i++;
 			if (!ft_isdigit(str[i]))
 				return (0);
 		}
@@ -58,19 +80,6 @@ int	ft_atoi(const char *str)
 			return (0);
 	}
 	if (ft_isdigit(str[i]))
-	{
-		j = i;
-		while (ft_isdigit(str[i]) && str[i] != '\0')
-			i++;
-		while (i-- > j)
-		{
-			num = num + (str[i] - 48) * weight;
-			weight = weight * 10;
-		}
-		if (sign != 0)
-			return (num * sign);
-		else
-			return (num);
-	}
+		return (ft_getnum(str, i, sign, num));
 	return (0);
 }
