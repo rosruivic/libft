@@ -6,7 +6,7 @@
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 16:42:10 by roruiz-v          #+#    #+#             */
-/*   Updated: 2022/10/05 11:44:48 by roruiz-v         ###   ########.fr       */
+/*   Updated: 2022/10/06 14:50:12 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,6 @@ char		*ft_strnstr(const char *haystack, const char *needle, size_t len);
  * @return int (the numeric representation of the "number" found in the str)
  */
 int			ft_atoi(const char *str);
+void		*ft_calloc(size_t count, size_t size);
 
 #endif

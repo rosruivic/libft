@@ -6,25 +6,24 @@
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 12:01:21 by roruiz-v          #+#    #+#             */
-/*   Updated: 2022/10/06 12:19:47 by roruiz-v         ###   ########.fr       */
+/*   Updated: 2022/10/06 14:48:12 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
+/****************************************************************************
   Converts the initial portion of the string pointed (passing spaces until
-  	finds a number, and then from there to last until finds a no-number
-  	character, where it stops).
-	Omite los caracteres en blanco anteriores (como espacios, 
-		sangría de tabulación, etc.), no inicia la conversión hasta que encuentra 
-		un número o un signo, y luego encuentra un non-number O. 
-	La conversión termina cuando la cadena termina ('\0') 
-		y se devuelve el resultado.
-  RETURN VALUE: the int representation of the string found.
+  	finds a number (or a sign belowed by a number), and then from there 
+		to last until finds a no-number character, where it stops).
+	Spaces are white space, tab, rc... (isspace(3)).
+	It does not start de conversion until it finds a number or only one sign 
+		followed by a number. It finishes when founds a '\0' and returns value.
+	RETURN VALUE: the int representation of the string found.
+	***************************************************************************
+	VAR j: stocks 1st number position it founds;
+	VAR i--: stocks last position with a number it founds.
+	(We'll walk this positions in inverted order: units, decens, centens...)
+*****************************************************************************/
 
-	j va a conservar la posición del primer número que encuentre;
-	i-- va a conservar la posición del último número que encuentre.
-	(tengo que ir recorriendo en orden inverso: unidades, decenas, centenas...)
-*/
 #include "libft.h"
 
 static int	ft_getnum(const char *str, size_t i, int sign, int n)

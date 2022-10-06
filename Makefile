@@ -6,7 +6,7 @@
 #    By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/23 14:12:00 by roruiz-v          #+#    #+#              #
-#    Updated: 2022/10/05 10:56:55 by roruiz-v         ###   ########.fr        #
+#    Updated: 2022/10/06 14:51:22 by roruiz-v         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ SRC		=	ft_isalpha.c \
 			ft_memchr.c \
 			ft_memcmp.c \
 			ft_strnstr.c \
-			ft_atoi.c
+			ft_atoi.c \
+			ft_calloc.c
 
 //BONUS	=	ft_archivo_bonus.c
 
