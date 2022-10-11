@@ -6,7 +6,7 @@
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 16:42:10 by roruiz-v          #+#    #+#             */
-/*   Updated: 2022/10/06 14:50:12 by roruiz-v         ###   ########.fr       */
+/*   Updated: 2022/10/10 18:07:02 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,16 @@ int			ft_tolower(int c);
 char		*ft_strchr(const char *s, int c);
 char		*ft_strrchr(const char *s, int c);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
+/**
+ * @brief 
+ * 
+ * @param s 
+ * @param c 
+ * @param n 
+ * @return void* 
+ */
 void		*ft_memchr(const void *s, int c, size_t n);
+
 /**
  * @brief 
  * 
@@ -59,6 +68,40 @@ char		*ft_strnstr(const char *haystack, const char *needle, size_t len);
  * @return int (the numeric representation of the "number" found in the str)
  */
 int			ft_atoi(const char *str);
+
+/**
+ * @brief It contiguously allocates enough space for count objects that are 
+ 		 size bytes of memory each and returns a pointer to the allocated memory.
+		 The allocated memory is filled with bytes of value zero (ft_bzero).
+ * 
+ * @param count 
+ * @param size 
+ * @return void* 
+ */
 void		*ft_calloc(size_t count, size_t size);
+
+/**
+ * @brief The strdup() function allocates sufficient memory for a copy of the
+     string s1, does the copy, and returns a pointer to it. The pointer
+     may subsequently be used as an argument to the function free.
+     If insufficient memory is available, NULL is returned and errno is set
+     to ENOMEM
+ * 
+ * @param s1 
+ * @return char* 
+ */
+char		*ft_strdup(const char *s1);
+
+/**
+ * @brief				Reserva (con malloc) y devuelve un substring del string 's'.
+ * 								El substring empieza desde el índice 'start' y tiene una
+ * 								longitud máxima de 'len'.
+ * 
+ * @param s :			String desde el que crear el substring
+ * @param start :	Índice del carácter en 's' desde el que empezar el substring
+ * @param len :		Longitud máxima de la substring
+ * @return char* :	Substring resultante (NULL si falla la reserva de memoria)
+ */
+char		*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif
