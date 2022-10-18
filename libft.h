@@ -6,7 +6,7 @@
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 16:42:10 by roruiz-v          #+#    #+#             */
-/*   Updated: 2022/10/10 18:07:02 by roruiz-v         ###   ########.fr       */
+/*   Updated: 2022/10/15 13:59:14 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 # include <stdlib.h>
 # include <stddef.h>
 
+/**
+ * @brief guapa
+ * 
+ * @param var 
+ * @return int 
+ */
 int			ft_isalpha(int var);
 int			ft_isdigit(int var);
 int			ft_isalnum(int var);
@@ -71,7 +77,7 @@ int			ft_atoi(const char *str);
 
 /**
  * @brief It contiguously allocates enough space for count objects that are 
- 		 size bytes of memory each and returns a pointer to the allocated memory.
+ 		 size bytes of memory each and returns a pointer to the allocated memory
 		 The allocated memory is filled with bytes of value zero (ft_bzero).
  * 
  * @param count 
@@ -93,15 +99,45 @@ void		*ft_calloc(size_t count, size_t size);
 char		*ft_strdup(const char *s1);
 
 /**
- * @brief				Reserva (con malloc) y devuelve un substring del string 's'.
- * 								El substring empieza desde el índice 'start' y tiene una
- * 								longitud máxima de 'len'.
+ * @brief	Reserva (con malloc) y devuelve un substring del string 's'.
+ * 			El substring empieza desde el índice 'start' y tiene una
+ * 			longitud máxima de 'len'.
  * 
- * @param s :			String desde el que crear el substring
- * @param start :	Índice del carácter en 's' desde el que empezar el substring
- * @param len :		Longitud máxima de la substring
- * @return char* :	Substring resultante (NULL si falla la reserva de memoria)
+ * @param s :	String desde el que crear el substring
+ * @param start : Índice del carácter en 's' desde el que empezar el substring
+ * @param len :	Longitud máxima de la substring
+ * @return char* : Substring resultante (NULL si falla la reserva de memoria)
  */
 char		*ft_substr(char const *s, unsigned int start, size_t len);
+/**
+ * @brief : Reserva (con malloc) y devuelve una cadena nueva formada por
+ * 					la concatenación de 's1' y 's2'
+ * 
+ * @param s1 Primer string
+ * @param s2 Segundo string que se añade al final de 's1'
+ * @return char* Devuelve el nuevo string; NULL si falla la reserva de memoria
+ */
+char		*ft_strjoin(char const *s1, char const *s2);
+
+/**
+ * @brief Allocates (with malloc) and returns a copy of ’s1’ with the characters
+ * specified in ’set’ removed from the beginning and the end of the string.
+ * 
+ * @param s1 The string to be trimmed.
+ * @param set The reference set of characters to trim.
+ * @return char* - The trimmed string. NULL if the allocation fails.
+ */
+char		*ft_strtrim(char const *s1, char const *set);
+/**
+ * @brief Allocates (with malloc) and returns an array of strings obtained 
+ * 				by splitting ’s’ using the character ’c’ as a delimiter. 
+ * 				The array must end with a NULL pointer.
+ * 
+ * @param s The string to be split.
+ * @param c The delimiter character.
+ * @return char** - The array of new strings resulting from the split.
+ * 					NULL if the allocation fails.
+ */
+char		**ft_split(char const *s, char c);
 
 #endif

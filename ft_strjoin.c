@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 17:40:24 by roruiz-v          #+#    #+#             */
-/*   Updated: 2022/10/13 15:41:15 by roruiz-v         ###   ########.fr       */
+/*   Created: 2022/10/13 15:54:26 by roruiz-v          #+#    #+#             */
+/*   Updated: 2022/10/14 11:45:57 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char			*sub;
-	unsigned int	i;
+	char	*newstr;
+	size_t	len;
 
-	i = 0;
-	if (ft_strlen(s) < start || len == 0)
+	if (!s1 && !s2)
 		return ((char *)ft_calloc(1, sizeof(char)));
-	if (ft_strlen(s) - start < len)
-		len = (ft_strlen(s) - start);
-	sub = (char *)malloc((len + 1) * sizeof(char));
-	if (!sub)
+	len = ft_strlen(s1) + ft_strlen(s2);
+	newstr = (char *)malloc(sizeof(char) * (len + 1));
+	if (!newstr)
 		return (NULL);
-	while (i < len)
-	{
-		sub[i] = s[start];
-		i++;
-		start++;
-	}
-	sub[i] = '\0';
-	return (sub);
+	ft_strlcpy(newstr, s1, ft_strlen(s1) + 1);
+	ft_strlcpy(newstr + ft_strlen(newstr), s2, ft_strlen(s2) + 1);
+	return (newstr);
 }
