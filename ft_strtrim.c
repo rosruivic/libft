@@ -6,7 +6,7 @@
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 13:59:26 by roruiz-v          #+#    #+#             */
-/*   Updated: 2022/10/15 13:40:47 by roruiz-v         ###   ########.fr       */
+/*   Updated: 2022/10/19 13:19:59 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	stop;
 
 	if (s1 == NULL || s1[0] == '\0')
-		return ((char *)ft_calloc(1, sizeof(char)));
+	{
+		newstr = (char *)ft_calloc(1, sizeof(char));
+		if (!newstr)
+			return (NULL);
+		return (newstr);
+	}
 	if (!set)
 		return (ft_substr(s1, 0, ft_strlen(s1) + 1));
 	j = ft_strlen(s1) - 1;

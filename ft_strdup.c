@@ -6,7 +6,7 @@
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 10:45:16 by roruiz-v          #+#    #+#             */
-/*   Updated: 2022/10/10 16:26:13 by roruiz-v         ###   ########.fr       */
+/*   Updated: 2022/10/19 12:55:58 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strdup(const char *s1)
 	size_t		len;
 
 	len = ft_strlen(s1);
-	dst = (char *)malloc((len + 1) * sizeof(char));
+	dst = (char *)ft_calloc((len + 1), sizeof(char));
 	if (!dst)
 		return (NULL);
 	ft_memmove(dst, s1, len);
