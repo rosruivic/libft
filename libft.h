@@ -6,7 +6,7 @@
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 16:42:10 by roruiz-v          #+#    #+#             */
-/*   Updated: 2022/10/19 16:05:47 by roruiz-v         ###   ########.fr       */
+/*   Updated: 2022/10/24 12:21:12 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,19 @@
 # include <stddef.h>
 
 /**
- * @brief guapa
+ * @brief 
  * 
  * @param var 
  * @return int 
  */
 int			ft_isalpha(int var);
+
+/**
+ * @brief 
+ * 
+ * @param var 
+ * @return int 
+ */
 int			ft_isdigit(int var);
 int			ft_isalnum(int var);
 int			ft_isascii(int var);
@@ -128,12 +135,13 @@ char		*ft_strjoin(char const *s1, char const *s2);
  * @return char* - The trimmed string. NULL if the allocation fails.
  */
 char		*ft_strtrim(char const *s1, char const *set);
+
 /**
  * @brief Allocates (with malloc) and returns an array of strings obtained 
  * 				by splitting ’s’ using the character ’c’ as a delimiter. 
  * 				The array must end with a NULL pointer.
  * 
- * @param s The string to be split.
+ * @param s The string to be split..
  * @param c The delimiter character.
  * @return char** - The array of new strings resulting from the split.
  * 					NULL if the allocation fails.

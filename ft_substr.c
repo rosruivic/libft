@@ -6,11 +6,21 @@
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 17:40:24 by roruiz-v          #+#    #+#             */
-/*   Updated: 2022/10/19 12:55:44 by roruiz-v         ###   ########.fr       */
+/*   Updated: 2022/10/23 19:36:23 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+// static char *ft_freedom(char *sub)
+// {
+// 	if (!sub)
+// 		{
+// 			free(sub);
+// 			return (NULL);
+// 		}
+// 	return (sub);
+// }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -36,6 +46,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		i++;
 		start++;
 	}
-	sub[i] = '\0';
+	//sub[i] = '\0';
 	return (sub);
 }
