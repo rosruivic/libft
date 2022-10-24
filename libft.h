@@ -6,7 +6,7 @@
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 16:42:10 by roruiz-v          #+#    #+#             */
-/*   Updated: 2022/10/24 12:21:12 by roruiz-v         ###   ########.fr       */
+/*   Updated: 2022/10/24 14:53:01 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,4 +148,12 @@ char		*ft_strtrim(char const *s1, char const *set);
  */
 char		**ft_split(char const *s, char c);
 
+/**
+ * @brief Allocates (with malloc) and returns a string representing the 
+ * integer received as an argument. Negative numbers must be handled.
+ * 
+ * @param n the integer to convert
+ * @return char* The string representing the integer. NULL if the allocation fails.
+ */
+char        *ft_itoa(int n);
 #endif
