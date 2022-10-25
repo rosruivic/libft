@@ -6,7 +6,7 @@
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 14:54:13 by roruiz-v          #+#    #+#             */
-/*   Updated: 2022/10/24 20:28:08 by roruiz-v         ###   ########.fr       */
+/*   Updated: 2022/10/25 16:11:20 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,52 +14,83 @@
 
 static int	ft_calcpositions(int n)
 {
-	int	posit;
+	int	positions;
 
-	posit = 1;
+	positions = 1;
 	while (n >= 10)
 	{
 		n = n / 10;
-		posit++;		
+		positions++;
 	}
-	return (posit);
+	return (positions);
 }
 
-static char	*ft_fillstr(int n, char * nbr, unsigned int posit, char neg)
+static char	*ft_fillstr(int n, char *nbr, unsigned int positions, char neg)
 {
-	while (posit > 0)
+	while (positions > 0)
 	{
-		nbr[posit - 1] = 48 + (n % 10);
+		nbr[positions - 1] = 48 + (n % 10);
 		n = n / 10;
-		posit--;
+		positions--;
 	}
 	if (neg == '-')
 		nbr[0] = neg;
 	return (nbr);
 }
 
-char	*ft_itoa(int n)
+static char	*ft_swapmin(char *nbr)
 {
-	char		*nbr;
-	unsigned int	posit;	/* numero de posiciones que se reservarán en el string */
-	char		neg;	/* chivato de que se trata de un numero negativo */
-	
-	posit = 0;
-	neg = '+';
-	if (n < 0 && n != -2147483648) /* si es negativo, ponemos posit a 1 para que callokee una posición extra para el signo negativo */
+	int		i;
+
+	i = 2;
+	while (i < 12)
 	{
-		neg = '-';	/* la primera posición del string será para esta variable sólo en el caso de ser negativo */
-		posit = 1;
-		n = n * (-1);	/* y lo ponemos en positivo antes de calcular cuantas posiciones tiene */
+		nbr[i - 1] = nbr[i];
+		i++;
 	}
-	else if (n == -2147483648)
-	{
-		/* AQUÍ TENGO QUE HACER EL CASO ESPECIAL PARA EL MÍNIMO (NO TIENE RÉPLICA EN LOS POSITIVOS AL MULTIPLICAR POR -1) */
-	}
-	posit = posit + ft_calcpositions(n);
-	nbr = (char *)ft_calloc((size_t)posit + 1, sizeof(char));
-	if (!nbr)
-		return(NULL);
-	nbr = ft_fillstr(n, nbr, posit, neg);
+	nbr[i - 2] = '8';
 	return (nbr);
 }
+
+static char	*ft_minvalue(void)
+{
+	int						n;
+	unsigned int			positions;
+	char					neg;
+	char					*nbr;
+
+	n = 214748364;
+	positions = 11;
+	neg = '-';
+	nbr = (char *)ft_calloc((size_t)12, sizeof(char));
+	if (!nbr)
+		return (NULL);
+	nbr = ft_fillstr(n, nbr, positions, neg);
+	nbr = ft_swapmin(nbr);
+	return (nbr);
+}
+
+char	*ft_itoa(int n)
+{
+	char			*nbr;
+	unsigned int	positions;
+	char			neg;
+
+	positions = 0;
+	neg = '+';
+	if (n < 0 && n != -2147483648)
+	{
+		neg = '-';
+		positions = 1;
+		n = n * (-1);
+	}
+	else if (n == -2147483648)
+		return (ft_minvalue());
+	positions = positions + ft_calcpositions(n);
+	nbr = (char *)ft_calloc((size_t)positions + 1, sizeof(char));
+	if (!nbr)
+		return (NULL);
+	nbr = ft_fillstr(n, nbr, positions, neg);
+	return (nbr);
+}
+ 

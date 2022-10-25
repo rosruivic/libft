@@ -6,29 +6,19 @@
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 13:54:36 by roruiz-v          #+#    #+#             */
-/*   Updated: 2022/10/24 12:20:20 by roruiz-v         ###   ########.fr       */
+/*   Updated: 2022/10/25 15:14:59 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//chequea esto
 static char	**ft_freedom(char **matrix, size_t word)
 {	
-	// int	i;
-
-	// i = 0;
-	// while (matrix[i])
-	// {
-	// 	free(matrix[i]);
-	// 	i++;
-	// }
 	while (word >= 0)
 	{
 		free(matrix[word]);
 		word--;
 	}
-// proceso común a ambos métodos:
 	free(matrix);
 	return (NULL);
 }

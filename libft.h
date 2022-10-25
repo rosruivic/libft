@@ -6,7 +6,7 @@
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 16:42:10 by roruiz-v          #+#    #+#             */
-/*   Updated: 2022/10/24 14:53:01 by roruiz-v         ###   ########.fr       */
+/*   Updated: 2022/10/25 18:28:18 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,7 +153,21 @@ char		**ft_split(char const *s, char c);
  * integer received as an argument. Negative numbers must be handled.
  * 
  * @param n the integer to convert
- * @return char* The string representing the integer. NULL if the allocation fails.
+ * @return char* The string representing the integer. 
+ * NULL if the allocation fails.
  */
-char        *ft_itoa(int n);
+char		*ft_itoa(int n);
+
+/**
+ * @brief Applies the function ’f’ to each character of the string ’s’, 
+ * and passing its index as first argument to create a new string 
+ * (with malloc) resulting from successive applications of ’f’.
+ * 
+ * @param s The string on which to iterate.
+ * @param f The function to apply to each character.
+ * @return char* The string created from the successive applications of ’f’.
+Returns NULL if the allocation fails.
+ */
+char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+
 #endif

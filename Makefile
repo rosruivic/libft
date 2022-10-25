@@ -6,7 +6,7 @@
 #    By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/23 14:12:00 by roruiz-v          #+#    #+#              #
-#    Updated: 2022/10/24 14:53:43 by roruiz-v         ###   ########.fr        #
+#    Updated: 2022/10/25 18:28:30 by roruiz-v         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,8 @@ SRC		=	ft_isalpha.c \
 			ft_strjoin.c \
 			ft_strtrim.c \
 			ft_split.c \
-			ft_itoa.c
+			ft_itoa.c \
+			ft_strmapi.c
 
 //BONUS	=	ft_archivo_bonus.c
 
