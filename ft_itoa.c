@@ -6,7 +6,7 @@
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 14:54:13 by roruiz-v          #+#    #+#             */
-/*   Updated: 2022/10/25 16:11:20 by roruiz-v         ###   ########.fr       */
+/*   Updated: 2022/10/26 13:51:35 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,4 +93,3 @@ char	*ft_itoa(int n)
 	nbr = ft_fillstr(n, nbr, positions, neg);
 	return (nbr);
 }
- 
