@@ -6,7 +6,7 @@
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 16:42:10 by roruiz-v          #+#    #+#             */
-/*   Updated: 2022/10/26 21:03:59 by roruiz-v         ###   ########.fr       */
+/*   Updated: 2022/11/03 17:27:57 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LIBFT_H
 
 # include <stdlib.h>
-# include <stddef.h>
 # include <unistd.h>
 
 /**
@@ -32,20 +31,139 @@ int			ft_isalpha(int var);
  * @return int 
  */
 int			ft_isdigit(int var);
+
+/**
+ * @brief 
+ * 
+ * @param var 
+ * @return int 
+ */
 int			ft_isalnum(int var);
+
+/**
+ * @brief 
+ * 
+ * @param var 
+ * @return int 
+ */
 int			ft_isascii(int var);
+
+/**
+ * @brief 
+ * 
+ * @param var 
+ * @return int 
+ */
 int			ft_isprint(int var);
+
+/**
+ * @brief 
+ * 
+ * @param str 
+ * @return size_t 
+ */
 size_t		ft_strlen(char const *str);
+
+/**
+ * @brief 
+ * 
+ * @param b 
+ * @param c 
+ * @param len 
+ * @return void* 
+ */
 void		*ft_memset(void *b, int c, size_t len);
+
+/**
+ * @brief 
+ * 
+ * @param s 
+ * @param n 
+ */
 void		ft_bzero(void *s, size_t n);
+
+/**
+ * @brief 
+ * 
+ * @param dst 
+ * @param src 
+ * @param n 
+ * @return void* 
+ */
 void		*ft_memcpy(void *dst, const void *src, size_t n);
+
+/**
+ * @brief 
+ * 
+ * @param dst 
+ * @param src 
+ * @param len 
+ * @return void* 
+ */
 void		*ft_memmove(void *dst, const void *src, size_t len);
+
+/**
+ * @brief 
+ * 
+ * @param dst 
+ * @param src 
+ * @param dstsize 
+ * @return size_t 
+ */
 size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
+
+/**
+ * @brief 
+ * 
+ * @param dst 
+ * @param src 
+ * @param dstsize 
+ * @return size_t 
+ */
 size_t		ft_strlcat(char *dst, const char *src, size_t dstsize);
+
+/**
+ * @brief 
+ * 
+ * @param c 
+ * @return int 
+ */
 int			ft_toupper(int c);
+
+/**
+ * @brief 
+ * 
+ * @param c 
+ * @return int 
+ */
 int			ft_tolower(int c);
+
+/**
+ * @brief 
+ * 
+ * @param s 
+ * @param c 
+ * @return char* 
+ */
 char		*ft_strchr(const char *s, int c);
+
+/**
+ * @brief 
+ * 
+ * @param s 
+ * @param c 
+ * @return char* 
+ */
 char		*ft_strrchr(const char *s, int c);
+
+/**
+ * @brief 
+ * 
+ * @param s1 
+ * @param s2 
+ * @param n 
+ * @return int 
+ */
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 /**
  * @brief 
@@ -213,5 +331,54 @@ void		ft_putendl_fd(char *s, int fd);
  * @param fd The file descriptor on which to write.
  */
 void		ft_putnbr_fd(int n, int fd);
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}								t_list;
+
+/**
+ * @brief Allocates (with malloc) and returns a new node.
+ * The member variable ’content’ is initialized with the value 
+ * of the parameter ’content’.
+ * The variable ’next’ is initialized to NULL
+ * 
+ * @param content The content to create the node with.
+ * @return t_list* The new node
+ */
+t_list		*ft_lstnew(void *content);
+
+/**
+ * @brief Adds the node ’new’ at the beginning of the list.
+ * 
+ * @param lst The address of a pointer to the first link of a list.
+ * @param new The address of a pointer to the node to be added to the list.
+ */
+void		ft_lstadd_front(t_list **lst, t_list *new);
+
+/**
+ * @brief Counts the number of nodes in a list.
+ * 
+ * @param lst The beginning of the list.
+ * @return int The length of the list
+ */
+int			ft_lstsize(t_list *lst);
+
+/**
+ * @brief Returns the last node of the list.
+ * 
+ * @param lst The beginning of the list.
+ * @return t_list* Last node of the list
+ */
+t_list		*ft_lstlast(t_list *lst);
+
+/**
+ * @brief Adds the node ’new’ at the end of the list
+ * 
+ * @param lst The address of a pointer to the first link of a list.
+ * @param new The address of a pointer to the node to be added to the list.
+ */
+void		ft_lstadd_back(t_list **lst, t_list *new);
 
 #endif

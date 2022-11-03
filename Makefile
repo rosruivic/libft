@@ -6,11 +6,13 @@
 #    By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/23 14:12:00 by roruiz-v          #+#    #+#              #
-#    Updated: 2022/10/26 21:01:37 by roruiz-v         ###   ########.fr        #
+#    Updated: 2022/11/03 16:22:23 by roruiz-v         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	libft.a
+
+HDRS = libft.h
 
 SRC		=	ft_isalpha.c \
 			ft_isdigit.c \
@@ -47,23 +49,39 @@ SRC		=	ft_isalpha.c \
 			ft_putendl_fd.c \
 			ft_putnbr_fd.c
 
-//BONUS	=	ft_archivo_bonus.c
+OBJS = $(SRC:.c=.o)
+
+SRCB	=	ft_lstnew_bonus.c \
+				ft_lstadd_front_bonus.c \
+				ft_lstsize_bonus.c \
+				ft_lstlast_bonus.c \
+				ft_lstadd_back_bonus.c
+
+OBJSB = $(SRCB:.c=.o)
 
 FLAGS	= -Wall -Werror -Wextra
 
+.c.o:
+	gcc -c $(FLAGS) $< -o $(<:.c=.o)
+
 all:	$(NAME)
 
-$(NAME):
-	gcc -c $(FLAGS) $(SRC)
-	ar -cr $(NAME) *.o
-	ranlib $(NAME)
-	
+$(NAME): $(OBJS) $(HDRS)
+	ar -crs $(NAME) $(OBJS)
+		
 clean:
-	/bin/rm -f *.o
+	rm -f *.o
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	rm -f $(NAME)
 
 re:	fclean all
 
-.PHONY: all, clean, fclean, re
+bonus: $(OBJS) $(OBJSB) $(HDRS)
+	ar -cr $(NAME) $(OBJS) $(OBJSB)
+	ranlib $(NAME)
+
+.PHONY: all clean fclean re bonus
+
+# ar -s crea la indexación
+# hace lo mismo que ranlib $(NAME), por ejemplo
