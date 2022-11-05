@@ -6,7 +6,7 @@
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 16:42:10 by roruiz-v          #+#    #+#             */
-/*   Updated: 2022/11/03 17:27:57 by roruiz-v         ###   ########.fr       */
+/*   Updated: 2022/11/05 22:16:14 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -380,5 +380,49 @@ t_list		*ft_lstlast(t_list *lst);
  * @param new The address of a pointer to the node to be added to the list.
  */
 void		ft_lstadd_back(t_list **lst, t_list *new);
+
+/**
+ * @brief Takes as a parameter a node and frees the memory of the 
+ * node’s content using the function ’del’ given as a parameter 
+ * and free the node. The memory of ’next’ must not be freed.
+ * 
+ * @param lst The node to free.
+ * @param del The address of the function used to delete the content.
+ */
+void		ft_lstdelone(t_list *lst, void (*del)(void *));
+
+/**
+ * @brief Deletes and frees the given node and every successor of that node,
+ * using the function ’del’ and free. 
+ * Finally, the pointer to the list must be set to NULL.
+ * 
+ * @param lst The address of a pointer to a node.
+ * @param del The address of the function used to delete 
+ * the content of the node.
+ */
+void		ft_lstclear(t_list **lst, void (*del)(void *));
+
+/**
+ * @brief Iterates the list ’lst’ and applies the function ’f’ 
+ * on the content of each node.
+ * 
+ * @param lst The address of a pointer to a node.
+ * @param f The address of the function used to iterate on the list.
+ */
+void		ft_lstiter(t_list *lst, void (*f)(void *));
+
+/**
+ * @brief Iterates the list ’lst’ and applies the function ’f’ on the content
+ * of each node. Creates a new list resulting of the successive applications
+ * of the function ’f’. 
+ * The ’del’ function is used to delete the content of a node if needed.
+ * 
+ * @param lst The address of a pointer to a node.
+ * @param f The address of the function used to iterate on the list.
+ * @param del The address of the function used to delete the content of a node
+ * if needed.
+ * @return t_list* The new list. NULL if the allocation fails.
+ */
+t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif
