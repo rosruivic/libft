@@ -6,7 +6,7 @@
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 13:54:36 by roruiz-v          #+#    #+#             */
-/*   Updated: 2022/10/25 15:14:59 by roruiz-v         ###   ########.fr       */
+/*   Updated: 2022/11/07 21:35:51 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 static char	**ft_freedom(char **matrix, size_t word)
 {	
-	while (word >= 0)
+	size_t	i;
+
+	i = 0;
+	while (i < word)
 	{
-		free(matrix[word]);
-		word--;
+		free(matrix[i]);
+		i++;
 	}
 	free(matrix);
 	return (NULL);
