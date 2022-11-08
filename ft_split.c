@@ -6,18 +6,18 @@
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 13:54:36 by roruiz-v          #+#    #+#             */
-/*   Updated: 2022/11/07 21:35:51 by roruiz-v         ###   ########.fr       */
+/*   Updated: 2022/11/08 16:36:24 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	**ft_freedom(char **matrix, size_t word)
+static char	**ft_freedom(char **matrix)
 {	
 	size_t	i;
 
 	i = 0;
-	while (i < word)
+	while (matrix[i])
 	{
 		free(matrix[i]);
 		i++;
@@ -78,7 +78,7 @@ static char	**ft_matrix_pos(char **matrix, const char *s, char c, size_t words)
 				i++;
 			matrix[word] = ft_substr(s, (unsigned int)w_ini, (i - w_ini));
 			if (!matrix[word])
-				return (ft_freedom(matrix, word));
+				return (ft_freedom(matrix));
 		}
 		word++;
 	}
